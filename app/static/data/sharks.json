@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "name": "Tubarão-branco",
+        "scientific_name": "Carcharodon carcharias",
+        "image": "great-white",
+        "description": "Um dos maiores predadores dos oceanos. Conhecido pela força, velocidade e capacidade de percorrer grandes distâncias.",
+        "habitat": "Oceanos temperados",
+        "size": "Até 6 metros",
+        "diet": "Peixes, lulas e mamíferos marinhos",
+        "status": "Vulnerável"
+    },
+    {
+        "id": 2,
+        "name": "Tubarão-baleia",
+        "scientific_name": "Rhincodon typus",
+        "image": "whale-shark",
+        "description": "O maior peixe conhecido do planeta. Apesar do tamanho impressionante, alimenta-se principalmente filtrando pequenos organismos da água.",
+        "habitat": "Águas tropicais e quentes",
+        "size": "Até 18 metros",
+        "diet": "Plâncton e pequenos organismos",
+        "status": "Em perigo"
+    },
+    {
+        "id": 3,
+        "name": "Tubarão-martelo",
+        "scientific_name": "Sphyrna lewini",
+        "image": "hammerhead",
+        "description": "Reconhecido pelo formato incomum de sua cabeça, o tubarão-martelo possui sentidos altamente desenvolvidos para localizar suas presas.",
+        "habitat": "Águas tropicais e subtropicais",
+        "size": "Até 4 metros",
+        "diet": "Peixes, lulas e crustáceos",
+        "status": "Criticamente ameaçado"
+    }
+]
