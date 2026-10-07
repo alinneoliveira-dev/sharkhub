@@ -145,14 +145,113 @@
 
     </section>
 
-    <section class="screen placeholder-screen" id="quiz-screen">
+<section class="screen quiz-screen" id="quiz-screen">
+
+    <div class="quiz-header">
 
         <button class="back-button" data-screen="home-screen">
-            ← Voltar ao oceano
+            ←
         </button>
-        <h2>Mito ou verdade?</h2>
 
-    </section>
+        <div>
+            <span class="eyebrow">DESAFIO</span>
+            <h2>Mito ou<br>verdade?</h2>
+        </div>
+
+    </div>
+
+    <div class="quiz-progress">
+
+        <div class="quiz-progress-info">
+            <span id="quiz-question-number">
+                PERGUNTA 1 DE 6
+            </span>
+
+            <span id="quiz-score">
+                0 PONTOS
+            </span>
+        </div>
+
+        <div class="quiz-progress-bar">
+            <div id="quiz-progress-fill"></div>
+        </div>
+
+    </div>
+
+
+    <div class="quiz-content">
+
+        <span class="quiz-label">
+            VOCÊ SABIA?
+        </span>
+
+        <h3 id="quiz-question">
+            Carregando pergunta...
+        </h3>
+
+
+        <div class="quiz-actions">
+
+            <button
+                class="quiz-answer-button true"
+                data-answer="true"
+            >
+                <span class="quiz-answer-icon">✓</span>
+
+                <span>
+                    <strong>Verdade</strong>
+                    <small>Isso é real.</small>
+                </span>
+            </button>
+
+
+            <button
+                class="quiz-answer-button false"
+                data-answer="false"
+            >
+                <span class="quiz-answer-icon">×</span>
+
+                <span>
+                    <strong>Mito</strong>
+                    <small>Isso não é bem assim.</small>
+                </span>
+            </button>
+
+        </div>
+
+
+        <div
+            id="quiz-feedback"
+            class="quiz-feedback"
+            hidden
+        >
+
+            <div class="quiz-feedback-title">
+                <span id="quiz-feedback-icon"></span>
+
+                <strong id="quiz-feedback-result"></strong>
+            </div>
+
+            <p id="quiz-explanation"></p>
+
+            <span
+                id="quiz-source"
+                class="quiz-source"
+            ></span>
+
+            <button
+                id="quiz-next"
+                class="quiz-next-button"
+            >
+                Próxima pergunta
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
 
     <section class="screen placeholder-screen" id="personality-screen">
 

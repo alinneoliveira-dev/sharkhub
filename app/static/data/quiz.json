@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "statement": "A maioria dos tubarões representa uma ameaça para os seres humanos.",
+        "answer": false,
+        "explanation": "Mito. A maioria dos tubarões não é perigosa para humanos. A NOAA informa que as pessoas não fazem parte da dieta natural dos tubarões e que apenas uma pequena parcela das espécies esteve envolvida em ataques a humanos.",
+        "source": "NOAA Ocean Service"
+    },
+    {
+        "id": 2,
+        "statement": "Tubarões possuem esqueleto formado por cartilagem, e não por ossos.",
+        "answer": true,
+        "explanation": "Verdade. Tubarões pertencem ao grupo dos peixes cartilaginosos. Seu esqueleto é formado principalmente por cartilagem, um tecido mais leve e flexível que o osso.",
+        "source": "NOAA Fisheries"
+    },
+    {
+        "id": 3,
+        "statement": "Tubarões conseguem detectar pequenos campos elétricos produzidos por outros animais.",
+        "answer": true,
+        "explanation": "Verdade. Os tubarões possuem estruturas sensoriais chamadas ampolas de Lorenzini, capazes de detectar campos elétricos muito fracos produzidos por suas presas.",
+        "source": "NOAA Fisheries"
+    },
+    {
+        "id": 4,
+        "statement": "Todos os tubarões se reproduzem da mesma maneira.",
+        "answer": false,
+        "explanation": "Mito. Existem diferentes formas de reprodução entre os tubarões. A NOAA descreve quatro estratégias: viviparidade, oviparidade, ovoviviparidade e reprodução assexuada.",
+        "source": "NOAA Fisheries"
+    },
+    {
+        "id": 5,
+        "statement": "Algumas espécies de tubarão podem deixar uma cicatriz semelhante a um umbigo depois do nascimento.",
+        "answer": true,
+        "explanation": "Verdade. Em algumas espécies vivíparas, os filhotes desenvolvem uma conexão placentária durante a gestação e podem nascer com uma cicatriz umbilical entre as nadadeiras peitorais.",
+        "source": "NOAA Fisheries"
+    },
+    {
+        "id": 6,
+        "statement": "A percepção de que os ataques de tubarão estão sempre aumentando significa que as populações de tubarões estão explodindo.",
+        "answer": false,
+        "explanation": "Mito. A NOAA explica que a percepção sobre ataques pode ser influenciada pela exposição da mídia e pelas redes sociais. Além disso, a situação das populações varia entre espécies e regiões.",
+        "source": "NOAA Fisheries"
+    }
+]
