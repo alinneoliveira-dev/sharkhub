@@ -5,83 +5,61 @@
 <div class="app">
 
     <header class="status-bar">
-        <span id="current-time">21:59</span>
+    <span id="current-time">17:18</span>
 
-        <div class="status-icons">
-            <span>▮▮</span>
-            <span>⌁</span>
-            <span>▰</span>
-        </div>
-    </header>
+    <div class="status-icons">
+        <span class="signal-icon" aria-label="Sinal">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
 
+        <span class="wifi-icon" id="wifi-icon" aria-label="Wi-Fi">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
+        <span class="battery-icon" aria-label="Bateria">
+            <span class="battery-level"></span>
+        </span>
+    </div>
+</header>
     <section class="screen active" id="home-screen">
-
         <div class="home-header">
-
             <div>
                 <span class="eyebrow">SEU PRÓXIMO MERGULHO</span>
-
-                <h1>
-                    Olá, explorador
-                    <span class="accent-dot">.</span>
-                </h1>
+                <h1>Olá, explorador<span class="accent-dot">.</span></h1>
             </div>
-
             <button class="round-button" aria-label="Ambiente">
-                ≋
+                <img src="{{ url_for('static', filename='images/icon-menu.png') }}" alt="Ambiente">
             </button>
-
         </div>
 
         <article class="featured-shark">
-
             <div class="featured-overlay">
-
-                <span class="featured-label">
-                    <span></span>
-                    ESPÉCIE EM DESTAQUE
-                </span>
-
-                <h2>O verdadeiro<br>rei dos mares.</h2>
-
-                <p>
-                    Tubarão-branco ·
-                    <em>Carcharodon carcharias</em>
-                </p>
-
+             <h2>O verdadeiro<br>rei dos mares.</h2>
             </div>
-
         </article>
 
-        <div class="section-heading">
-            <span>ESCOLHA SUA EXPEDIÇÃO</span>
-        </div>
-
+        <div class="section-heading"><span>ESCOLHA SUA EXPEDIÇÃO</span></div>
 
         <div class="expedition-list">
-
             <button class="expedition-card" data-screen="species-screen">
-
                 <span class="expedition-icon green">
                     ◉
                 </span>
-
                 <span class="expedition-text">
                     <strong>Encontros no oceano</strong>
-                    <small>Espécies incríveis. Fotos reais.</small>
+                    <small>Espécies incríveis.</small>
                 </span>
-
                 <span class="arrow">›</span>
-
             </button>
-
-
             <button class="expedition-card" data-screen="quiz-screen">
-
                 <span class="expedition-icon yellow">
                     ✓
                 </span>
-
                 <span class="expedition-text">
                     <strong>Mito ou verdade?</strong>
                     <small>Desafie o que você sabe.</small>
@@ -91,13 +69,10 @@
 
             </button>
 
-
             <button class="expedition-card" data-screen="personality-screen">
-
                 <span class="expedition-icon purple">
                     ✧
                 </span>
-
                 <span class="expedition-text">
                     <strong>Qual tubarão é você?</strong>
                     <small>Descubra seu lado selvagem.</small>
@@ -108,32 +83,20 @@
             </button>
 
         </div>
-
     </section>
-
     <section class="screen" id="species-screen">
-
         <div class="inner-header">
-
             <button class="back-button" data-screen="home-screen">
                 ←
             </button>
-
             <div>
                 <span class="eyebrow">EXPLORAÇÃO</span>
                 <h2>Encontros<br>no oceano.</h2>
             </div>
-
         </div>
-
-        <p class="screen-description">
-            Três espécies. Três jeitos extraordinários
-            de viver sob a superfície.
-        </p>
-
+        <p class="screen-description"></p>
 
         <div id="species-list" class="species-list">
-            <!-- O JavaScript vai preencher -->
         </div>
 
     </section>
@@ -155,30 +118,22 @@
 
 
         <div class="detail-image"></div>
-
         <div class="detail-content">
-
             <em id="detail-scientific-name"></em>
-
             <p id="detail-description"></p>
-
             <div class="detail-grid">
-
                 <div>
                     <span>HABITAT</span>
                     <strong id="detail-habitat"></strong>
                 </div>
-
                 <div>
                     <span>TAMANHO</span>
                     <strong id="detail-size"></strong>
                 </div>
-
                 <div>
                     <span>ALIMENTAÇÃO</span>
                     <strong id="detail-diet"></strong>
                 </div>
-
                 <div>
                     <span>STATUS</span>
                     <strong id="detail-status"></strong>
@@ -195,14 +150,7 @@
         <button class="back-button" data-screen="home-screen">
             ← Voltar ao oceano
         </button>
-
-        <span class="eyebrow">PRÓXIMA EXPEDIÇÃO</span>
-
         <h2>Mito ou verdade?</h2>
-
-        <p>
-            O quiz está chegando.
-        </p>
 
     </section>
 
@@ -211,37 +159,25 @@
         <button class="back-button" data-screen="home-screen">
             ← Voltar ao oceano
         </button>
-
-        <span class="eyebrow">DESCUBRA SEU LADO SELVAGEM</span>
-
         <h2>Qual tubarão é você?</h2>
-
-        <p>
-            Sua expedição pessoal começa em breve.
-        </p>
-
     </section>
 
     <nav class="bottom-nav">
 
         <button class="nav-item active" data-screen="home-screen">
-            <span>⌂</span>
-            <small>Início</small>
+            <img src="{{ url_for('static', filename='images/icon-home.png') }}" alt="Início">
         </button>
 
         <button class="nav-item" data-screen="species-screen">
-            <span>◎</span>
-            <small>Espécies</small>
+            <img src="{{ url_for('static', filename='images/icon-shark-home.png') }}" alt="Espécies">
         </button>
 
         <button class="nav-item" data-screen="quiz-screen">
-            <span>✓</span>
-            <small>Quiz</small>
+            <img src="{{ url_for('static', filename='images/icon-quiz.png') }}" alt="Quiz">
         </button>
 
         <button class="nav-item" data-screen="personality-screen">
-            <span>✧</span>
-            <small>Meu tubarão</small>
+            <img src="{{ url_for('static', filename='images/icon-sparkles.png') }}" alt="Personalidade">
         </button>
 
     </nav>
