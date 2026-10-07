@@ -71,8 +71,11 @@ function renderSpecies() {
         card.classList.add("species-card");
 
         card.innerHTML = `
-            <div class="species-image ${shark.image}">
-                <span>🦈</span>
+            <div class="species-image">
+                <img
+                    src="/static/images/${shark.image}"
+                    alt="${shark.name}"
+                >
             </div>
 
             <div class="species-info">
@@ -90,7 +93,6 @@ function renderSpecies() {
         speciesList.appendChild(card);
     });
 }
-
 
 function showSharkDetails(sharkId) {
 
