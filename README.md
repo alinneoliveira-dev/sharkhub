@@ -16,8 +16,6 @@ A proposta é transformar essa paixão em uma experiência interativa, com explo
 
 ## Tecnologias
 
-- Python
-- Flask
 - HTML
 - CSS
 - JavaScript
