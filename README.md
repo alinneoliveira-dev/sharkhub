@@ -1,6 +1,18 @@
 # 🦈 SharkHub
 
-> Plataforma interativa para exploração e descoberta de espécies de tubarões.
+<blockquote>
+  <p align="center">
+    Plataforma interativa para exploração e descoberta de espécies de tubarões.
+  </p>
+</blockquote>
+
+<p align="center">
+<img src="app\static\images\sharkub-projeto.png" alt="Preview do SharkHub" width="50%">
+</p>
+
+<p align="center">
+  <a href="https://sharkhub.onrender.com/">sharkhub.onrender.com ↗</a>
+</p>
 
 ## Sobre o projeto
 
