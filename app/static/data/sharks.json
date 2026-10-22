@@ -31,5 +31,82 @@
     "size": "Até 4 metros",
     "diet": "Peixes, lulas e crustáceos",
     "status": "Criticamente ameaçado"
+    },
+     {
+    "id": 4,
+    "name": "Tubarão-tigre",
+    "scientific_name": "Galeocerdo cuvier",
+    "image": "tubarao-tigre.jpg",
+    "description": "Conhecido pelas manchas e listras verticais que lembram as de um tigre, especialmente quando jovem. É um grande predador e tem uma aparência marcante.",
+    "habitat": "Águas tropicais e quentes",
+    "size": "Até 7,4 metros",
+    "diet": "Peixes, lulas e mamíferos marinhos",
+    "status": "Quase ameaçado"
+    },
+    {
+    "id": 5,
+    "name": "Tubarão-lixa",
+    "scientific_name": "Ginglymostoma cirratum",
+    "image": "tubarao-lixa.jpg",
+    "description": "Bastante amistoso e calmo,  passa boa parte do tempo parado devido sua capacidade de bombear a água por suas brânquias para respirar.",
+    "habitat": "Águas costeiras tropicais e subtropicais",
+    "size": "Até 4,3 metros",
+    "diet": "Peixes de fundo, crustáceos e moluscos",
+    "status": "Vulnerável"
+    },
+    {
+    "id": 6,
+    "name": "Tubarão-raposa",
+    "scientific_name": "Alopias pelagicus",
+    "image": "tubarao-raposa.jpg",
+    "description": "Bastante amistoso e calmo,  passa boa parte do tempo parado devido sua capacidade de bombear a água por suas brânquias para respirar.",
+    "habitat": "Águas temperadas e tropicais",
+    "size": "Até 6 metros",
+    "diet": "Peixes de cardume e cefálopodes",
+    "status": "Vulnerável"
+    },
+    {
+    "id": 7,
+    "name": "Tubarão-mako",
+    "scientific_name": "Isurus oxyrinchus",
+    "image": "tubarao-mako.jpg",
+    "description": ":É considerado o tubarão mais rápido, podendo chegar a 88 km/h, possui corpo hidrodinâmico, adaptado para natação veloz ",
+    "habitat": "Águas oceânicas tropicais e temperadas",
+    "size": "Até 4,5 metros",
+    "diet": "Peixes pelágicos rápidos e cefálopodes",
+    "status": "Em perigo"
+    },
+    {
+    "id": 8,
+    "name": "Tubarão-groenlandia ",
+    "scientific_name": "Somniosus microcephalus",
+    "image": "tubarao-groenlandia.png",
+    "description": "É o vertebrado com a maior expectativa de vida do mundo, podendo viver centenas de anos (com estimativas que ultrapassam os 400 anos).",
+    "habitat": "Águas frias do Ártico e do norte do Atlântico",
+    "size": "Até 7,3 metros",
+    "diet": "Peixes e mamíferos marinhos",
+    "status": "Em perigo"
+    },
+     {
+    "id": 9,
+    "name": "Tubarão-peregrino ",
+    "scientific_name": "Cetorhinus maximus",
+    "image": "tubarao-peregrino.jpg",
+    "description": "É o segundo maior peixe do mundo e inofensivo e é um animal filtrador e planctívoro",
+    "habitat": "Águas frias, boreais e temperadas de todo o globo",
+    "size": "Até 12 metros",
+    "diet": "Exclusivamente planctívora",
+    "status": "Em perigo"
+    },
+     {
+    "id": 10,
+    "name": "Tubarão-limao ",
+    "scientific_name": "Negaprion brevirostriss",
+    "image": "tubarao-limao.jpg",
+    "description": "Conhecido por sua coloração parda amarelada que serve como camuflagem no fundo de areia",
+    "habitat": "Águas frias, boreais e temperadas de todo o globo",
+    "size": "Até 3,4 metros",
+    "diet": "Exclusivamente planctívora",
+    "status": "Peixes e crustáceos"
     }
 ]

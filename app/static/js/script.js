@@ -171,6 +171,10 @@ function showSharkDetails(sharkId) {
         return;
     }
 
+    const detailImg = document.getElementById("detail-img");
+
+    detailImg.src = `/static/images/${shark.image}`;
+    detailImg.alt = shark.name;
 
     document.getElementById(
         "detail-name"

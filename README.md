@@ -6,13 +6,13 @@
 
 ## Sobre o projeto
 
-O SharkHub nasceu da ideia de desenvolver um projeto que tivesse mais da minha personalidade, sem deixar de ser uma oportunidade para explorar novas tecnologias e conceitos.
+ SharkHub nasceu de uma paixão pessoal: meu carinho pelos tubarões e pelo oceano.
 
-Em vez de criar apenas mais um projeto genérico para portfólio, quis transformar um interesse pessoal em uma experiência digital própria: uma aplicação inspirada em interfaces mobile para explorar diferentes espécies de tubarões.
+Sempre quis ter um projeto que tivesse mais da minha personalidade, algo que fosse além de desenvolver uma aplicação para praticar tecnologias ou adicionar mais um repositório ao portfólio. Queria criar algo com o qual eu realmente me identificasse.
 
-A proposta é reunir exploração, pesquisa, filtros, quizzes e progresso do usuário em uma única experiência. Futuramente, o projeto também contará com recursos de inteligência artificial.
+A ideia de criar um projeto inteiramente dedicado aos tubarões surgiu da vontade de unir uma paixão pessoal ao meu desenvolvimento como programadora. O SharkHub é, ao mesmo tempo, um projeto de aprendizado, uma oportunidade de colocar em prática ferramentas e conceitos que fazem parte da minha rotina de desenvolvimento e uma forma de compartilhar um pouco de quem eu sou.
 
-O projeto ainda está em desenvolvimento e sua proposta pode evoluir conforme novas ideias forem surgindo.
+A proposta é transformar essa paixão em uma experiência interativa, com exploração de espécies, curiosidades, quizzes e outras funcionalidades relacionadas ao universo dos tubarões.
 
 ## Tecnologias
 
@@ -21,4 +21,3 @@ O projeto ainda está em desenvolvimento e sua proposta pode evoluir conforme no
 - HTML
 - CSS
 - JavaScript
-- PostgreSQL
