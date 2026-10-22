@@ -235,12 +235,87 @@
     </div>
 </section>
 
-    <section class="screen placeholder-screen" id="personality-screen">
+    
+<section class="screen personality-screen" id="personality-screen">
+
+    <div class="personality-header">
         <button class="back-button" data-screen="home-screen">
-            ← Voltar ao oceano
+            ←
         </button>
-        <h2>Qual tubarão é você?</h2>
-    </section>
+
+        <div>
+            <span class="eyebrow">TESTE DE PERSONALIDADE</span>
+            <h2>Qual tubarão<br>é você?</h2>
+        </div>
+    </div>
+
+    <div id="personality-questions">
+
+        <div class="personality-intro">
+            <span class="personality-symbol">✦</span>
+            <h3>Vamos descobrir seu lado oceânico?</h3>
+            <p>
+                Cinco perguntas, respostas sinceras e um tubarão
+                que combina com a sua energia.
+            </p>
+
+            <button id="personality-start" class="personality-start-button">
+                Descobrir meu tubarão <span>→</span>
+            </button>
+        </div>
+
+        <div id="personality-game" hidden>
+
+            <div class="personality-progress-info">
+                <span id="personality-question-number">PERGUNTA 1 DE 5</span>
+                <span id="personality-progress-percent">0%</span>
+            </div>
+
+            <div class="personality-progress-bar">
+                <div id="personality-progress-fill"></div>
+            </div>
+
+            <div class="personality-question-content">
+                <span class="personality-label">SEJA VOCÊ MESMO</span>
+                <h3 id="personality-question"></h3>
+                <div id="personality-options" class="personality-options"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="personality-result" hidden>
+
+        <div class="personality-result-intro">
+            <span class="personality-label">RESULTADO DA EXPEDIÇÃO</span>
+            <h3>Seu tubarão match:</h3>
+        </div>
+
+        <div class="personality-result-card">
+            <div class="personality-result-image">
+                <img id="personality-result-image" src="" alt="">
+            </div>
+
+            <div class="personality-result-content">
+                <span id="personality-result-type"></span>
+                <h3 id="personality-result-name"></h3>
+                <em id="personality-result-scientific"></em>
+                <p id="personality-result-description"></p>
+            </div>
+        </div>
+
+        <button id="personality-explore" class="personality-start-button">
+            Conhecer essa espécie <span>→</span>
+        </button>
+
+        <button id="personality-restart" class="personality-restart-button">
+            ↻ Fazer o teste novamente
+        </button>
+
+    </div>
+
+</section>
+
     <nav class="bottom-nav">
 
         <button class="nav-item active" data-screen="home-screen">

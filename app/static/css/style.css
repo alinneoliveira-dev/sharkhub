@@ -218,9 +218,7 @@ body {
 }
 
 
-/* =========================
-   WI-FI
-========================= */
+/* configs do wifi */
 
 .wifi-icon {
     position: relative;
@@ -791,10 +789,7 @@ body {
 }
 
 
-
-/* =========================
-   QUIZ - MITO OU VERDADE
-========================= */
+/* quiz */
 
 .quiz-screen {
     padding-bottom: 90px;
@@ -1077,4 +1072,327 @@ body {
 .quiz-screen::-webkit-scrollbar-thumb {
     background: var(--border);
     border-radius: 999px;
+}
+
+/* qual tubarao é voce? */
+
+.personality-screen {
+    padding: 18px 20px 28px;
+}
+
+.personality-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 26px;
+}
+
+.personality-header h2 {
+    font-size: var(--fs-xl);
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.personality-intro {
+    padding: 22px 18px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(66, 230, 207, 0.10), transparent 45%),
+        var(--surface);
+}
+
+.personality-symbol {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(170, 154, 255, 0.35);
+    border-radius: 14px;
+    background: rgba(170, 154, 255, 0.10);
+    color: var(--purple);
+    font-size: 25px;
+}
+
+.personality-intro h3,
+.personality-result-intro h3 {
+    margin-bottom: 10px;
+    font-size: 23px;
+    line-height: 1.2;
+}
+
+.personality-intro p {
+    margin-bottom: 24px;
+    color: var(--muted);
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+}
+
+#personality-restart {
+    margin-top: 8px;
+    min-height: 42px;
+    padding: 11px 15px;
+}
+
+.personality-start-button,
+.personality-restart-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: var(--fs-sm);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.personality-start-button {
+    border: none;
+    background: var(--aqua);
+    color: var(--ocean-dark);
+}
+
+.personality-start-button:hover {
+    transform: translateY(-2px);
+    background: #75f2e0;
+}
+
+.personality-start-button span {
+    font-size: 20px;
+}
+
+.personality-progress-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.personality-progress-bar {
+    height: 5px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: var(--surface-light);
+}
+
+#personality-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--purple);
+    transition: width 0.35s ease;
+}
+
+.personality-question-content {
+    padding-top: 28px;
+}
+
+.personality-label {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--purple);
+    font-size: var(--fs-xs);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+#personality-question {
+    margin-bottom: 10px;
+    font-size: 22px;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+}
+
+.personality-question-content > p {
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: var(--fs-sm);
+    line-height: 1.5;
+}
+
+.personality-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.personality-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--surface);
+    color: var(--text);
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    animation: personalityEnter 0.3s ease both;
+}
+
+.personality-option:hover {
+    transform: translateY(-2px);
+    border-color: var(--purple);
+    background: var(--surface-light);
+}
+
+.personality-option:focus-visible,
+.personality-start-button:focus-visible,
+.personality-restart-button:focus-visible {
+    outline: 2px solid var(--aqua);
+    outline-offset: 3px;
+}
+
+.personality-option-text {
+    font-size: var(--fs-sm);
+    line-height: 1.5;
+}
+
+@keyframes personalityEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.personality-result-intro {
+    margin-bottom: 18px;
+}
+
+.personality-result-card {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    animation: personalityEnter 0.45s ease both;
+}
+
+.personality-result-image {
+    height: 190px;
+    overflow: hidden;
+    background: var(--ocean-deep);
+}
+
+.personality-result-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.personality-result-content {
+    padding: 20px;
+}
+
+#personality-result-type {
+    display: inline-block;
+    margin-bottom: 9px;
+    color: var(--aqua);
+    font-size: var(--fs-xs);
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#personality-result-name {
+    margin-bottom: 5px;
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+#personality-result-scientific {
+    color: var(--muted);
+    font-size: var(--fs-sm);
+}
+
+#personality-result-description {
+    margin-top: 12px;
+    margin-bottom: 4px;
+    color: #b3cacc;
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+}
+
+.personality-result-note {
+    margin: 12px 0 18px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+#personality-explore {
+    margin-top: 0;
+    min-height: 48px;
+    padding: 14px 15px;
+}
+
+.personality-restart-button {
+    justify-content: center;
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+}
+
+.personality-restart-button:hover {
+    background: var(--surface-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .personality-option,
+    .personality-result-card {
+        animation: none;
+    }
+
+    .personality-option,
+    .personality-start-button,
+    #personality-progress-fill {
+        transition: none;
+    }
+}
+
+/* tipo dos botoes - qual tubarão é você? */
+.personality-screen button {
+    font-family: inherit;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.personality-start-button,
+.personality-restart-button {
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.personality-option {
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.personality-option-text {
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.5;
 }

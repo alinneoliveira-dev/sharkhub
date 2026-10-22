@@ -1,5 +1,9 @@
 let sharks = [];
 let quizQuestions = [];
+let personalityQuestions = [];
+let personalityCurrentQuestion = 0;
+let personalityScores = {};
+let personalityResultId = null;
 
 let currentQuestion = 0;
 let score = 0;
@@ -30,6 +34,10 @@ function showScreen(screenId) {
 
     if (screenId === "quiz-screen") {
         startQuiz();
+    }
+
+    if (screenId === "personality-screen") {
+    resetPersonalityQuiz();
     }
 }
 
@@ -222,6 +230,248 @@ function showSharkDetails(sharkId) {
     );
 
 }
+
+
+/* =========================
+   QUAL TUBARÃO É VOCÊ?
+========================= */
+
+async function loadPersonalityQuestions() {
+    try {
+        const response = await fetch(
+            "/static/data/personality-quiz.json"
+        );
+
+        if (!response.ok) {
+            throw new Error("Não foi possível carregar as perguntas.");
+        }
+
+        personalityQuestions = await response.json();
+
+    } catch (error) {
+        console.error("Erro ao carregar o teste:", error);
+    }
+}
+
+
+const personalityProfiles = {
+    1: {
+        type: "O protagonista",
+        description: "Você não costuma fugir de um desafio. Quando decide fazer alguma coisa, vai atrás e encara o que aparecer. Sua energia é de quem prefere tentar a ficar imaginando como teria sido."
+    },
+    2: {
+        type: "A paz em pessoa",
+        description: "Você sabe que nem toda situação merece sua energia. Gosta de aproveitar a vida no seu ritmo e não vê necessidade de transformar tudo em uma competição."
+    },
+    3: {
+        type: "A mente investigativa",
+        description: "Sua cabeça dificilmente fica sem assunto. Você observa detalhes, cria teorias e gosta de entender o que está por trás das coisas. Às vezes, pensa tanto que até uma mensagem vira investigação."
+    },
+    4: {
+        type: "Camaleão do rolê",
+        description: "Você sabe se virar quando os planos mudam. Gosta de experiências diferentes e consegue encontrar um caminho mesmo quando ninguém sabe direito o que está acontecendo."
+    },
+    5: {
+        type: "A guardiã da tranquilidade",
+        description: "Seu lema poderia ser: menos drama, mais qualidade de vida. Você valoriza o próprio espaço, gosta de conforto e sabe que descansar também é aproveitar."
+    },
+    6: {
+        type: "Fora da caixinha",
+        description: "Você dificilmente escolhe sempre o caminho óbvio. Gosta de explorar ideias, encontrar alternativas e surpreender as pessoas com soluções que ninguém tinha considerado."
+    },
+    7: {
+        type: "A acelerada oficial",
+        description: "Esperar não é exatamente seu talento. Você gosta de movimento, desafios e novidades. Quando alguma coisa chama sua atenção, já quer começar — de preferência, agora."
+    },
+    8: {
+        type: "A alma antiga",
+        description: "Enquanto o mundo parece estar correndo uma maratona, você lembra que não precisa acompanhar todo mundo. Tem seu próprio ritmo e não sente necessidade de entrar em cada onda."
+    },
+    9: {
+        type: "A observadora do grupo",
+        description: "Você gosta de entender o ambiente antes de entrar na conversa. Percebe detalhes, acompanha as histórias e sabe aproveitar os momentos sem precisar ser o centro das atenções."
+    },
+    10: {
+        type: "A personalidade marcante",
+        description: "Você tem suas preferências, sabe o que gosta e não precisa concordar com todo mundo. Sua presença tem identidade própria e você prefere ser autêntica a tentar agradar a todos."
+    }
+};
+
+
+function resetPersonalityQuiz() {
+    personalityCurrentQuestion = 0;
+    personalityScores = {};
+    personalityResultId = null;
+
+    document.querySelector(".personality-intro").hidden = false;
+    document.getElementById("personality-game").hidden = true;
+    document.getElementById("personality-result").hidden = true;
+}
+
+
+async function startPersonalityGame() {
+    if (!personalityQuestions.length) {
+        await loadPersonalityQuestions();
+    }
+
+    if (!sharks.length) {
+        await loadSharks();
+    }
+
+    if (!personalityQuestions.length || !sharks.length) {
+        alert("Não foi possível carregar o teste. Tente novamente.");
+        return;
+    }
+
+    personalityCurrentQuestion = 0;
+    personalityScores = {};
+
+    document.querySelector(".personality-intro").hidden = true;
+    document.getElementById("personality-result").hidden = true;
+    document.getElementById("personality-game").hidden = false;
+
+    renderPersonalityQuestion();
+}
+
+
+function renderPersonalityQuestion() {
+    const question = personalityQuestions[personalityCurrentQuestion];
+
+    document.getElementById("personality-question-number").textContent =
+        `PERGUNTA ${personalityCurrentQuestion + 1} DE ${personalityQuestions.length}`;
+
+    const percentage = Math.round(
+        (personalityCurrentQuestion / personalityQuestions.length) * 100
+    );
+
+    document.getElementById("personality-progress-percent").textContent =
+        `${percentage}%`;
+
+    document.getElementById("personality-progress-fill").style.width =
+        `${percentage}%`;
+
+    document.getElementById("personality-question").textContent =
+        question.question;
+
+    const optionsContainer = document.getElementById("personality-options");
+    optionsContainer.innerHTML = "";
+
+    question.answers.forEach((answer, index) => {
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "personality-option";
+
+        button.style.animationDelay = `${index * 60}ms`;
+
+        const emoji = document.createElement("span");
+        emoji.className = "personality-option-emoji";
+        emoji.textContent = answer.emoji;
+
+        const text = document.createElement("span");
+        text.className = "personality-option-text";
+        text.textContent = answer.text;
+
+        button.append(emoji, text);
+
+        button.addEventListener("click", () => {
+            answerPersonalityQuestion(answer.sharkId);
+        });
+
+        optionsContainer.appendChild(button);
+    });
+}
+
+
+function answerPersonalityQuestion(sharkId) {
+    personalityScores[sharkId] =
+        (personalityScores[sharkId] || 0) + 1;
+
+    personalityCurrentQuestion++;
+
+    if (personalityCurrentQuestion >= personalityQuestions.length) {
+        showPersonalityResult();
+        return;
+    }
+
+    renderPersonalityQuestion();
+}
+
+
+function showPersonalityResult() {
+    const highestScore = Math.max(
+        ...Object.values(personalityScores)
+    );
+
+    const tiedIds = Object.keys(personalityScores)
+        .filter(id => personalityScores[id] === highestScore)
+        .map(Number);
+
+    // Se houver empate, sorteia entre os perfis empatados.
+    const winnerId = tiedIds[
+        Math.floor(Math.random() * tiedIds.length)
+    ];
+
+    const shark = sharks.find(item => item.id === winnerId);
+    const profile = personalityProfiles[winnerId];
+
+    if (!shark || !profile) {
+        console.error("Não foi possível encontrar o resultado.");
+        return;
+    }
+
+    personalityResultId = shark.id;
+
+    document.getElementById("personality-game").hidden = true;
+    document.getElementById("personality-result").hidden = false;
+
+    document.getElementById("personality-progress-percent").textContent =
+        "100%";
+
+    document.getElementById("personality-progress-fill").style.width =
+        "100%";
+
+    document.getElementById("personality-result-image").src =
+        `/static/images/${shark.image}`;
+
+    document.getElementById("personality-result-image").alt =
+        shark.name;
+
+    document.getElementById("personality-result-type").textContent =
+        profile.type;
+
+    document.getElementById("personality-result-name").textContent =
+        shark.name;
+
+    document.getElementById("personality-result-scientific").textContent =
+        shark.scientific_name;
+
+    document.getElementById("personality-result-description").textContent =
+        profile.description;
+}
+
+
+document.getElementById("personality-start").addEventListener(
+    "click",
+    startPersonalityGame
+);
+
+
+document.getElementById("personality-restart").addEventListener(
+    "click",
+    startPersonalityGame
+);
+
+
+document.getElementById("personality-explore").addEventListener(
+    "click",
+    () => {
+        if (personalityResultId !== null) {
+            showSharkDetails(personalityResultId);
+        }
+    }
+);
+
 
 
 /* =========================
@@ -743,5 +993,5 @@ setInterval(
 );
 
 loadSharks();
-
 loadQuiz();
+loadPersonalityQuestions();

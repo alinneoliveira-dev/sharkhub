@@ -1,0 +1,48 @@
+
+[
+    {
+        "question": "Seu grupo está decidindo o que fazer no sábado. Você...",
+        "answers": [
+            {"text": "Já apareço com um plano e coloco todo mundo em movimento.", "sharkId": 1},
+            {"text": "Só quero saber se vai ter comida e um lugar confortável.", "sharkId": 2},
+            {"text": "Sugiro um lugar diferente que ninguém conhece.", "sharkId": 6},
+            {"text": "Topo qualquer coisa, desde que não vire uma obrigação.", "sharkId": 5}
+        ]
+    },
+    {
+        "question": "Você entrou em um reality show. Qual seria seu diferencial?",
+        "answers": [
+            {"text": "Ganhar as provas e levar a competição a sério.", "sharkId": 7},
+            {"text": "Perceber as estratégias que ninguém mais notou.", "sharkId": 3},
+            { "text": "Me adaptar às reviravoltas e continuar no jogo.", "sharkId": 4},
+            {"text": "Continuar de boa enquanto todo mundo entra em pânico.", "sharkId": 8}
+        ]
+    },
+    {
+    "question": "Você está em um lugar onde não conhece quase ninguém. Como age?",
+    "answers": [
+        {"text": "Puxo assunto e logo estou fazendo amizade.", "sharkId": 7},
+        {"text": "Observo o ambiente primeiro e só depois me solto.", "sharkId": 3},
+        {"text": "Encontro algo interessante para fazer e aproveito do meu jeito.", "sharkId": 9},
+        {"text": "Fico na minha, curtindo o momento sem pressão para socializar.", "sharkId": 5}
+    ]
+    },
+    {
+        "question": "Escolha uma habilidade especial para ter pelo resto da vida.",
+        "answers": [
+            { "text": "Encarar qualquer desafio sem amarelar.", "sharkId": 1},
+            {"text": "Me adaptar a qualquer situação inesperada.", "sharkId": 4},
+            { "text": "Manter a paz mesmo no meio do caos.", "sharkId": 2},
+            {"text": "Ter ideias que ninguém imaginaria.", "sharkId": 6}
+        ]
+    },
+    {
+        "question": "Qual frase poderia estar na sua biografia?",
+        "answers": [
+            {"text": "Se é para fazer, vamos fazer direito.", "sharkId": 10},
+            { "text": "Eu observo tudo, só não comento tudo.", "sharkId": 9},
+            { "text": "Minha cabeça tem 37 abas abertas.", "sharkId": 3},
+            {"text": "Não sei o que estou fazendo, mas está funcionando.", "sharkId": 4}
+        ]
+    }
+]
