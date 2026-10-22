@@ -7,11 +7,13 @@
 </blockquote>
 
 <p align="center">
-<img src="app\static\images\sharkub-projeto.png" alt="Preview do SharkHub" width="50%">
+<img src="app\static\images\sharkub-projeto.png" alt="Preview do SharkHub" width="100%">
 </p>
 
 <p align="center">
-  <a href="https://sharkhub.onrender.com/">sharkhub.onrender.com ↗</a>
+  <a href="https://sharkhub.onrender.com/">
+    <strong>VISITAR SHARKHUB ↗</strong>
+  </a>
 </p>
 
 ## Sobre o projeto
