@@ -1,6 +1,7 @@
 let sharks = [];
 let quizQuestions = [];
-let personalityQuestions = [];
+let quizRoundQuestions = [];
+let personalityRoundQuestions = [];
 let personalityCurrentQuestion = 0;
 let personalityScores = {};
 let personalityResultId = null;
@@ -9,17 +10,11 @@ let currentQuestion = 0;
 let score = 0;
 let quizAnswered = false;
 
-
 const screens = document.querySelectorAll(".screen");
 const navigationItems = document.querySelectorAll("[data-screen]");
 
-
-/* =========================
-   NAVEGAÇÃO
-========================= */
-
+/* navegacao */
 function showScreen(screenId) {
-
     screens.forEach((screen) => {
         screen.classList.remove("active");
     });
@@ -41,13 +36,9 @@ function showScreen(screenId) {
     }
 }
 
-
 function updateNavigation(screenId) {
-
     document.querySelectorAll(".nav-item").forEach((item) => {
-
         item.classList.remove("active");
-
         if (item.dataset.screen === screenId) {
             item.classList.add("active");
         }
@@ -56,38 +47,25 @@ function updateNavigation(screenId) {
 
 }
 
-
 navigationItems.forEach((item) => {
-
     item.addEventListener("click", () => {
-
         showScreen(item.dataset.screen);
-
     });
-
 });
 
-
-/* =========================
-   TUBARÕES
-========================= */
+/* tubaroes */
 
 async function loadSharks() {
-
     try {
-
         const response = await fetch(
             "/static/data/sharks.json"
         );
-
         if (!response.ok) {
             throw new Error(
                 "Não foi possível carregar as espécies."
             );
         }
-
         sharks = await response.json();
-
         renderSpecies();
 
     } catch (error) {
@@ -103,97 +81,55 @@ async function loadSharks() {
 
 
 function renderSpecies() {
-
     const speciesList =
         document.getElementById("species-list");
-
     if (!speciesList) {
         return;
     }
-
     speciesList.innerHTML = "";
-
-
     sharks.forEach((shark) => {
-
         const card =
             document.createElement("button");
-
         card.classList.add("species-card");
-
-
         card.innerHTML = `
-
             <div class="species-image">
-
                 <img
                     src="/static/images/${shark.image}"
-                    alt="${shark.name}"
-                >
-
+                    alt="${shark.name}">
             </div>
-
-
             <div class="species-info">
-
-                <strong>
-                    ${shark.name}
-                </strong>
-
-                <em>
-                    ${shark.scientific_name}
-                </em>
-
+                <strong> ${shark.name} </strong> <em> ${shark.scientific_name}</em>
             </div>
-
-
             <span class="arrow">
-                ›
+›
             </span>
-
         `;
-
-
         card.addEventListener("click", () => {
-
             showSharkDetails(shark.id);
-
         });
-
-
         speciesList.appendChild(card);
-
     });
-
 }
 
-
 function showSharkDetails(sharkId) {
-
     const shark =
         sharks.find(
             (item) => item.id === sharkId
         );
-
     if (!shark) {
         return;
     }
-
     const detailImg = document.getElementById("detail-img");
-
     detailImg.src = `/static/images/${shark.image}`;
     detailImg.alt = shark.name;
-
     document.getElementById(
         "detail-name"
     ).textContent = shark.name;
-
 
     document.getElementById(
         "detail-scientific-name"
     ).textContent =
         shark.scientific_name;
-
 
     document.getElementById(
         "detail-description"
@@ -231,10 +167,7 @@ function showSharkDetails(sharkId) {
 
 }
 
-
-/* =========================
-   QUAL TUBARÃO É VOCÊ?
-========================= */
+/* qual tubarao é voce? */
 
 async function loadPersonalityQuestions() {
     try {
@@ -253,10 +186,21 @@ async function loadPersonalityQuestions() {
     }
 }
 
+function shuffleArray(array) {
+    const shuffled = [...array];
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
+}
+
 
 const personalityProfiles = {
     1: {
-        type: "O protagonista",
+        type: "O(a) protagonista",
         description: "Você não costuma fugir de um desafio. Quando decide fazer alguma coisa, vai atrás e encara o que aparecer. Sua energia é de quem prefere tentar a ficar imaginando como teria sido."
     },
     2: {
@@ -272,7 +216,7 @@ const personalityProfiles = {
         description: "Você sabe se virar quando os planos mudam. Gosta de experiências diferentes e consegue encontrar um caminho mesmo quando ninguém sabe direito o que está acontecendo."
     },
     5: {
-        type: "A guardiã da tranquilidade",
+        type: "O(a) guardião(a) da tranquilidade",
         description: "Seu lema poderia ser: menos drama, mais qualidade de vida. Você valoriza o próprio espaço, gosta de conforto e sabe que descansar também é aproveitar."
     },
     6: {
@@ -288,7 +232,7 @@ const personalityProfiles = {
         description: "Enquanto o mundo parece estar correndo uma maratona, você lembra que não precisa acompanhar todo mundo. Tem seu próprio ritmo e não sente necessidade de entrar em cada onda."
     },
     9: {
-        type: "A observadora do grupo",
+        type: "O(a) observador(a) do grupo",
         description: "Você gosta de entender o ambiente antes de entrar na conversa. Percebe detalhes, acompanha as histórias e sabe aproveitar os momentos sem precisar ser o centro das atenções."
     },
     10: {
@@ -323,6 +267,9 @@ async function startPersonalityGame() {
         return;
     }
 
+    personalityRoundQuestions = shuffleArray(personalityQuestions)
+    .slice(0, 5);
+
     personalityCurrentQuestion = 0;
     personalityScores = {};
 
@@ -335,13 +282,13 @@ async function startPersonalityGame() {
 
 
 function renderPersonalityQuestion() {
-    const question = personalityQuestions[personalityCurrentQuestion];
+    const question = personalityRoundQuestions[personalityCurrentQuestion];
 
     document.getElementById("personality-question-number").textContent =
-        `PERGUNTA ${personalityCurrentQuestion + 1} DE ${personalityQuestions.length}`;
+        `PERGUNTA ${personalityCurrentQuestion + 1} DE ${personalityRoundQuestions.length}`;
 
     const percentage = Math.round(
-        (personalityCurrentQuestion / personalityQuestions.length) * 100
+        (personalityCurrentQuestion / personalityRoundQuestions.length) * 100
     );
 
     document.getElementById("personality-progress-percent").textContent =
@@ -389,7 +336,7 @@ function answerPersonalityQuestion(sharkId) {
 
     personalityCurrentQuestion++;
 
-    if (personalityCurrentQuestion >= personalityQuestions.length) {
+    if (personalityCurrentQuestion >= personalityRoundQuestions.length) {
         showPersonalityResult();
         return;
     }
@@ -474,9 +421,7 @@ document.getElementById("personality-explore").addEventListener(
 
 
 
-/* =========================
-   QUIZ
-========================= */
+/* quiz*/
 
 async function loadQuiz() {
 
@@ -506,27 +451,21 @@ async function loadQuiz() {
 
 }
 
-
 function startQuiz() {
-
     if (!quizQuestions.length) {
         return;
     }
-
-
+    quizRoundQuestions = shuffleArray(quizQuestions).slice(0, 5);
     currentQuestion = 0;
     score = 0;
-
     showQuestion();
-
 }
-
 
 function showQuestion() {
 
     if (
         currentQuestion >=
-        quizQuestions.length
+        quizRoundQuestions.length
     ) {
 
         showQuizResult();
@@ -538,61 +477,19 @@ function showQuestion() {
     quizAnswered = false;
 
 
-    const question =
-        quizQuestions[currentQuestion];
+    const question = quizRoundQuestions[currentQuestion];
+    const questionNumber = document.getElementById("quiz-question-number");
+    const scoreElement =document.getElementById("quiz-score");
+    const questionElement = document.getElementById("quiz-question");
+    const feedback = document.getElementById("quiz-feedback");
+    const progressFill = document.getElementById("quiz-progress-fill");
 
-
-    const questionNumber =
-        document.getElementById(
-            "quiz-question-number"
-        );
-
-
-    const scoreElement =
-        document.getElementById(
-            "quiz-score"
-        );
-
-
-    const questionElement =
-        document.getElementById(
-            "quiz-question"
-        );
-
-
-    const feedback =
-        document.getElementById(
-            "quiz-feedback"
-        );
-
-
-    const progressFill =
-        document.getElementById(
-            "quiz-progress-fill"
-        );
-
-
-    questionNumber.textContent =
-        `PERGUNTA ${currentQuestion + 1} DE ${quizQuestions.length}`;
-
-
-    scoreElement.textContent =
-        `${score} PONTO${score === 1 ? "" : "S"}`;
-
-
-    questionElement.textContent =
-        question.statement;
-
-
+    questionNumber.textContent =`PERGUNTA ${personalityCurrentQuestion + 1} DE ${personalityRoundQuestions.length}`
+    scoreElement.textContent = `${score} PONTO${score === 1 ? "" : "S"}`;
+    questionElement.textContent = question.statement;
     feedback.hidden = true;
 
-
-    progressFill.style.width =
-        `${(
-            (currentQuestion) /
-            quizQuestions.length
-        ) * 100}%`;
-
+    progressFill.style.width = `${( (currentQuestion) / quizQuestions.length) * 100}%`;
 
     document
         .querySelectorAll(
@@ -612,43 +509,18 @@ function showQuestion() {
 
 }
 
-
 function answerQuestion(userAnswer) {
-
-    if (quizAnswered) {
-        return;
-    }
-
+    if (quizAnswered) {return;}
 
     quizAnswered = true;
+    const question =quizQuestions[currentQuestion];
+    const isCorrect = userAnswer === question.answer;
 
+    if (isCorrect) { score++; }
 
-    const question =
-        quizQuestions[currentQuestion];
+    document.querySelectorAll( ".quiz-answer-button").forEach((button) => {button.disabled = true;
 
-
-    const isCorrect =
-        userAnswer === question.answer;
-
-
-    if (isCorrect) {
-        score++;
-    }
-
-
-    document
-        .querySelectorAll(
-            ".quiz-answer-button"
-        )
-        .forEach((button) => {
-
-            button.disabled = true;
-
-
-            const buttonAnswer =
-                button.dataset.answer === "true";
-
-
+     const buttonAnswer = button.dataset.answer === "true";
             if (
                 buttonAnswer ===
                 question.answer
@@ -659,7 +531,6 @@ function answerQuestion(userAnswer) {
                 );
 
             }
-
 
             if (
                 buttonAnswer ===
