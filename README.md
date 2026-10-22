@@ -2,8 +2,6 @@
 
 > Plataforma interativa para exploração e descoberta de espécies de tubarões.
 
-![Status](https://img.shields.io/badge/em%20desenvolvimento-7C3AED?style=for-the-badge)
-
 ## Sobre o projeto
 
  SharkHub nasceu de uma paixão pessoal: meu carinho pelos tubarões e pelo oceano.
