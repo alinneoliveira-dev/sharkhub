@@ -7,7 +7,11 @@
 </blockquote>
 
 <p align="center">
-<img src="app\static\images\sharkub-projeto.png" alt="Preview do SharkHub" width="100%">
+<img src="app\static\images\sharkhub-projeto.png" alt="Preview do SharkHub" width="100%">
+</p>
+
+<p align="center">
+  <img src="app\static\images\sharkhub-projeto-mobile.png" alt="SharkHub na versão mobile" width="30%">
 </p>
 
 <p align="center">
